@@ -1,4 +1,7 @@
-const { description } = require('../../package')
+const { description, repository } = require('../../package')
+
+const parts = repository.split('/')
+const repoName = '/' + parts[parts.length - 1].replace(/.git$/,"")
 
 module.exports = {
   /**
@@ -21,7 +24,7 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
 
-  base: (process.env.npm_lifecycle_event === "dev" ? '/' : (process.env.REPO || './')),
+  base: (process.env.npm_lifecycle_event === 'dev' ? '/' : repoName),
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
