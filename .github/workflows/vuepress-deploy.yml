@@ -13,5 +13,5 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TARGET_BRANCH: gh_pages
-        BUILD_SCRIPT: yarn && yarn lint && yarn build
+        BUILD_SCRIPT: yarn && yarn build
         BUILD_DIR: src/.vuepress/dist/
