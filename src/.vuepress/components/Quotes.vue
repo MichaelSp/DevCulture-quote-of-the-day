@@ -3,12 +3,13 @@
     <blockquote class="custom-block tip">
       <h3>
         <!--suppress JSUnresolvedFunction -->
-        <iframe :src="$withBase(selectedQuote.regularPath)" />
+        <iframe :src="$withBase(selectedQuote.regularPath)" v-if="selectedQuote !== undefined" />
+        <span v-if="selectedQuote === undefined" >Loading...</span>
       </h3>
     </blockquote>
 
     <footer>
-      Go <a :href="contributeLink">contribute</a> your favourite quote. 🎉
+      <a :href="contributeLink">Contribute</a> your favourite quote. 🎉
     </footer>
   </div>
 </template>
@@ -18,9 +19,8 @@ export default {
   data: () => {
     return {
       quotes: [],
-      selectedQuote: '',
-      loading: true,
-      repo: '/'
+      selectedQuote: undefined,
+      repo: ''
     }
   },
   mounted() {
@@ -40,7 +40,7 @@ export default {
   computed: {
     contributeLink: function() {
       const id = `q${this.quotes.length + 1}`
-      return `${this.repo}/new/master/src/quotes?filename=${id}.md&value=Your%20quote%20goes%20here`
+      return `${this.repo}/new/master/src/quotes/new?filename=${id}.md&value=Your%20quote%20goes%20here`
     }
   },
   methods: {
@@ -48,7 +48,9 @@ export default {
       if (this.quotes.length <= 0)
         return
 
-      this.selectedQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)]
+      // TODO improve the selection to be truly once per day...
+      const randomIndex = Math.floor(Math.random() * this.quotes.length)
+      this.selectedQuote = this.quotes[randomIndex]
     }
   }
 }
