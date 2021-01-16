@@ -17,7 +17,6 @@ export default {
         .then((svg) => {
           const hero = this.$el.querySelector('header.hero')
           hero.innerHTML = svg
-          const segments = {}
           this.svgSegments = this.$el.querySelectorAll('#segments path')
         })
   },
@@ -38,8 +37,9 @@ export default {
       this.iteration++
 
       this.currentIteration = this.svgSegments[this.iteration]
-
-      this.currentIteration.classList.add('highlight')
+      if (this.currentIteration) {
+        this.currentIteration.classList.add('highlight')
+      }
     }
   }
 }
