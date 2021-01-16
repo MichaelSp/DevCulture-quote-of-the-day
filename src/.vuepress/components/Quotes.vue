@@ -17,7 +17,6 @@ export default {
   data: () => {
     return {
       quotes: [],
-      quote: '',
       selectedQuote: '',
       loading: true,
       repo: '/'
@@ -30,10 +29,10 @@ export default {
       }
     })
     this.repo = this.$site.themeConfig.repo.replace(/.git$/, '')
-    this.fetchQuote()
+    this.selectQuote()
   },
   created() {
-    this.fetchQuote()
+    this.selectQuote()
   },
   computed: {
     contributeLink: function() {
@@ -42,23 +41,11 @@ export default {
     }
   },
   methods: {
-    fetchQuote() {
+    selectQuote() {
       if (this.quotes.length <= 0)
         return
 
       this.selectedQuote = this.quotes[Math.floor(Math.random() * this.quotes.length)]
-      this.loading = true
-      this.quote = this.selectedQuote.regularPath
-      fetch(this.selectedQuote.regularPath)
-          .then(response => response.text())
-          .then(text => {
-            const parser = new DOMParser()
-            const htmlDocument = parser.parseFromString(text, 'text/html')
-            const section = htmlDocument.documentElement.querySelector('body')
-            this.quote = section.innerHTML
-            console.log(this.quote)
-            this.loading = false
-          })
     }
   }
 }
