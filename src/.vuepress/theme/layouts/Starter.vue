@@ -12,6 +12,9 @@ export default {
     }
   },
   mounted() {
+    if (!this.loop) {
+      this.loop = setInterval(() => this.step(), 800)
+    }
     fetch(this.$withBase('devops-loop.svg'))
         .then((svg) => svg.text())
         .then((svg) => {
@@ -19,11 +22,6 @@ export default {
           hero.innerHTML = svg
           this.svgSegments = this.$el.querySelectorAll('#segments path')
         })
-  },
-  created() {
-    if (!this.loop) {
-      this.loop = setInterval(() => this.step(), 800)
-    }
   },
   methods: {
     step: function() {
