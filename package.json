@@ -1,0 +1,22 @@
+{
+  "name": "devculture-quote-of-the-day",
+  "version": "0.0.1",
+  "description": "DevCulture quotes to make you think and help change the culture",
+  "main": "index.js",
+  "authors": {
+    "name": "Michael",
+    "email": "Michael@Sprauer.de"
+  },
+  "repository": "https://github.com/MichaelSp/DevCulture-quote-of-the-day.git",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "vuepress": "^1.5.3",
+    "webpack": "^5.15.0"
+  }
+}
