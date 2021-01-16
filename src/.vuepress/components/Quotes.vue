@@ -3,7 +3,7 @@
     <blockquote class="custom-block tip">
       <h3>
         <!--suppress JSUnresolvedFunction -->
-        <iframe :src="$withBase(selectedQuote.regularPath)" v-if="selectedQuote !== undefined" />
+        <iframe :src="$withBase(`${selectedQuote ? selectedQuote.regularPath: ''}`)" v-if="selectedQuote !== undefined" />
         <span v-if="selectedQuote === undefined" >Loading...</span>
       </h3>
     </blockquote>
