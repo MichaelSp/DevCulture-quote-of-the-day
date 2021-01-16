@@ -2,7 +2,8 @@
   <div>
     <blockquote class="custom-block tip">
       <h3>
-        <iframe :src="selectedQuote.regularPath" />
+        <!--suppress JSUnresolvedFunction -->
+        <iframe :src="$withBase(selectedQuote.regularPath)" />
       </h3>
     </blockquote>
 
@@ -23,11 +24,13 @@ export default {
     }
   },
   mounted() {
+    // noinspection JSUnresolvedVariable
     this.$site.pages.forEach(page => {
       if (page.regularPath.startsWith('/quotes')) {
         this.quotes.push(page)
       }
     })
+    // noinspection JSUnresolvedVariable
     this.repo = this.$site.themeConfig.repo.replace(/.git$/, '')
     this.selectQuote()
   },

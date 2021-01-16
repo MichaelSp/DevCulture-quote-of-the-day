@@ -31,7 +31,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: 'https://github.com/MichaelSp/DevCulture-quote-of-the-day.git',
+    repo: repository,
     editLinks: true,
     editLinkText: 'Edit this page on GitHub',
     docsDir: '',
