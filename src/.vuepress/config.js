@@ -1,7 +1,7 @@
 const { description, repository } = require('../../package')
 
 const parts = repository.split('/')
-const repoName = '/' + parts[parts.length - 1].replace(/.git$/,"")
+const repoName = `/${parts[parts.length - 1].replace(/.git$/,"")}/`
 
 module.exports = {
   /**
