@@ -16,7 +16,7 @@
   "devDependencies": {
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.1",
-    "vuepress": "^1.5.3",
+    "vuepress": "^1.9.5",
     "webpack": "^5.15.0"
   }
 }
