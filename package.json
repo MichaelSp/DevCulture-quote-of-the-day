@@ -17,6 +17,6 @@
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0",
     "vuepress": "^1.9.7",
-    "webpack": "^5.66.0"
+    "webpack": "^5.67.0"
   }
 }
